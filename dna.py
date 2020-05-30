@@ -16,8 +16,8 @@ with open(argv[1],"r") as inputfile:
 #Open Sequence TXT
 with open(argv[2],"r") as sequence:
     data = sequence.read()
-#need to comapre CSV and DNA with while loops?
-# i is a list of AGATC, AATG, TATC (or any other sequence)
+#need to comapre CSV and DNA
+# i is a segement of DNA which may contain the data from the CSV we are looking for.
 # for each sequence
 valuelist = []
 for q in range(len(i)): #i = 3
@@ -25,37 +25,42 @@ for q in range(len(i)): #i = 3
     counter = 0
     position = 0
     previouspos = 0
-    # while the dna sequence has not been fully worked through do the following.
+    # while the dna sequence has not been fully scanned through do the following.
     while position < len(data):
         # this gives the position at which the sequence is found
         position = data.find(i[q], position)
-        if position == -1: # i.e not found...
+        if position == -1: # i.e not found, reset the counter, stop the loop.
             counter = 0
             break
-        # if not -1 then it has been found and if position - the length of the sequence is also equal to - 1, it is a consequtive value?
+        # if not -1 then the sequence being searchef for has been found and if (position - the length of the sequence) is also equal to 0, it is a consequtive value
+        #if sequence is at the start of the sequence
         elif (position != -1) and previouspos == 0:
             counter += 1
             maxcounter = counter
             previouspos = position
+        #sequential occurances
         elif (position != -1) and ((position - len(i[q])) == previouspos):
             counter += 1
             previouspos = position
             if maxcounter < counter:
                 maxcounter = counter
+        #first found and not at the start of the sequence.
         elif (position != -1) and ((position - len(i[q])) != previouspos):
             counter = 1
             previouspos = position
             if maxcounter < counter:
                 maxcounter = counter
         position += 1
+    #record the largest number of sequencial occurances. 
     valuelist.append(maxcounter)
-#now to figure out how to store them and compare to people.
-#update the list to bea list of strings to enable comparison.
+
+#the following compares the occurances of each nucliotide to the databases  
+#update the list to be a list of strings to enable comparison.
 valuelist = list(map(str, valuelist))
 #make a new list to preserve reader
 cleaned = list(reader)
 cleaned.pop(0)
-#compare valuelist to reader
+#compare valuelist to reader and if found print the name of the person whos DNA has all the occurances to the console/terminal.
 for person in cleaned:
     if person[1:] == valuelist:
         print(f"{person[0]}")
