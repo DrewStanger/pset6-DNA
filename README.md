@@ -5,13 +5,10 @@ This was produced as a part of CS50 - Introduction to Computer Science. Uploadin
 
 How it works
 
-- There are two main datasets compated within in this program, firstly databases and the DNA sequences, the databases which lists of peoples names compared with the number of sequential nucleotides which occur within a sequence of their DNA. 
+- There are two main datasets compated within in this program, firstly the databases CSV files and the DNA sequences, the CSV file contains data of individuals names and the the number of sequential nucleotides which occur within their DNA. The DNA sequence files contain one 'raw' long string consisting of A, C, G and T which together make up nucleotides.  
 
-- dna.py is used to compare the sequences against the databases.
+- dna.py is used to compare the sequences against the databases. To do this dna.py iterates through the DNA sequences and counts how many sequential occurances of each DNA nucleotide occur and then saves this to an array.
 
-- To do this dna.py iterates through the DNA sequences and counts how many occurances of each DNA nucleotide occur.
-
-- the values are saved to an array and are then compared to the databases, if all of the values match a person, it can be concluded that the DNA sequence belongs to them. 
-
+- the values are then compared to the values contained in the CSVs, if all of the values match a person, it can be concluded that the DNA sequence belongs to them. 
 
 *NOTE* the datasets and dna sequences were provided within CS50. 
