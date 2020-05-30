@@ -12,3 +12,6 @@ How it works
 - To do this dna.py iterates through the DNA sequences and counts how many occurances of each DNA nucleotide occur.
 
 - the values are saved to an array and are then compared to the databases, if all of the values match a person, it can be concluded that the DNA sequence belongs to them. 
+
+
+*NOTE* the datasets and dna sequences were provided within CS50. 
