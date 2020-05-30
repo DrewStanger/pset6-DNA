@@ -2,25 +2,22 @@ from sys import argv, exit
 import itertools
 import csv
 import re
-# STR count to count number of consec repeats
-# check if there are 2 CMA
+# check if there are the required amount of command line args.
 if len(argv) != 3:
     print(f"Error there should be 2 argv, you have {argv}")
     exit(1)
-# Open CSV and read to mem
+# Open CSV and read to a list.
 with open(argv[1],"r") as inputfile:
-    #reader = csv.DictReader(inputfile)
     reader = list(csv.reader(inputfile))
     reader[0].remove("name")
     i = reader[0]
 #Open Sequence TXT
 with open(argv[2],"r") as sequence:
     data = sequence.read()
-#need to comapre CSV and DNA
-# i is a segement of DNA which may contain the data from the CSV we are looking for.
+# i is a segement of DNA which contains the data from the CSV we are looking for.
 # for each sequence
 valuelist = []
-for q in range(len(i)): #i = 3
+for q in range(len(i)): #eg. for the small CSV i = 3. so iterates for each nucleotide.
     maxcounter = 0
     counter = 0
     position = 0
