@@ -1,3 +1,5 @@
+NOTE: Copying this data and using it for your submission will breach the academic honesty https://cs50.harvard.edu/x/2020/honesty/ policy of CS50. Make sure you learn the material and provide the solution by youself. It's worth it!!
+
 This is a python application which identifies a person based on their DNA.
 https://cs50.harvard.edu/x/2020/psets/6/dna/
 
